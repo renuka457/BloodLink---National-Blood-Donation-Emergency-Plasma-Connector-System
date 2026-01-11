@@ -1,6 +1,21 @@
-donors = []
+import json
+
+FILE_NAME = "donors.json"
 
 valid_blood_groups = ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"]
+
+def load_donors():
+    try:
+        with open(FILE_NAME, "r") as file:
+            return json.load(file)
+    except FileNotFoundError:
+        return []
+
+def save_donors(donors):
+    with open(FILE_NAME, "w") as file:
+        json.dump(donors, file, indent=4)
+
+donors = load_donors()
 
 def add_donor():
     name = input("Enter donor name: ")
@@ -19,17 +34,17 @@ def add_donor():
         "phone": phone
     })
 
-    print("Donor added successfully!\n")
+    save_donors(donors)
+    print("Donor added and saved successfully!\n")
 
 def search_donor():
     blood_group = input("Enter required blood group: ").upper()
     city = input("Enter city: ").lower()
 
-    matches = []
-
-    for donor in donors:
-        if donor["blood_group"] == blood_group and donor["city"] == city:
-            matches.append(donor)
+    matches = [
+        donor for donor in donors
+        if donor["blood_group"] == blood_group and donor["city"] == city
+    ]
 
     if matches:
         print("\nMatching Donors:")
@@ -56,4 +71,3 @@ while True:
         break
     else:
         print("Invalid choice. Try again.\n")
-
