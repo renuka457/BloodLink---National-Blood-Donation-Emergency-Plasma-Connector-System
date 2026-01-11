@@ -8,6 +8,10 @@ This is the initial version (v1) created for learning and future expansion.
 - Add donor details
 - Search donors by blood group and city
 - Display matching donors
+- Validates blood group input
+- Case-insensitive donor search
+- Displays donor contact details
+
 
 ## Tech Used
 - Python
