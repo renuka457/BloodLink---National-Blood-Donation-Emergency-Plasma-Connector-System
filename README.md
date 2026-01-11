@@ -1,4 +1,13 @@
-# BloodLink---National-Blood-Donation-Emergency-Plasma-Connector-System
-BloodLink is a real-time web-based platform designed to connect blood and plasma donors with patients in need. It uses location-based matching and automated notifications to improve emergency response times and streamline donor-request management.
-This project is currently in progress.
-Details, implementation, and documentation will be added soon.
+# BloodLink – National Blood Donation & Emergency Plasma Connector System
+
+BloodLink is a simple Python-based system that helps match blood donors with patients based on blood group and city.
+
+This is the initial version (v1) created for learning and future expansion.
+
+## Features
+- Add donor details
+- Search donors by blood group and city
+- Display matching donors
+
+## Tech Used
+- Python
