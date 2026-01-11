@@ -11,3 +11,9 @@ This is the initial version (v1) created for learning and future expansion.
 
 ## Tech Used
 - Python
+
+## How to Run
+1. Clone the repository
+2. Run the program using: python bloodlink.py
+3. Follow the menu options
+
