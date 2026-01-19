@@ -3,6 +3,7 @@ import json
 FILE_NAME = "donors.json"
 
 valid_blood_groups = ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"]
+valid_cities = ["pune", "mumbai", "bangalore", "delhi", "chennai", "hyderabad"]
 
 def load_donors():
     try:
@@ -24,7 +25,11 @@ def add_donor():
     phone = input("Enter phone number: ")
 
     if blood_group not in valid_blood_groups:
-        print("Invalid blood group!\n")
+        print("❌ Invalid blood group\n")
+        return
+
+    if city not in valid_cities:
+        print("❌ Service not available in this city\n")
         return
 
     donors.append({
@@ -35,24 +40,28 @@ def add_donor():
     })
 
     save_donors(donors)
-    print("Donor added and saved successfully!\n")
+    print("✅ Donor added successfully!\n")
 
 def search_donor():
     blood_group = input("Enter required blood group: ").upper()
     city = input("Enter city: ").lower()
 
     matches = [
-        donor for donor in donors
-        if donor["blood_group"] == blood_group and donor["city"] == city
+        d for d in donors
+        if d["blood_group"] == blood_group and d["city"] == city
     ]
 
     if matches:
-        print("\nMatching Donors:")
-        for donor in matches:
-            print(f"- {donor['name']} | Phone: {donor['phone']}")
+        print("\n🩸 Matching Donors:")
+        for d in matches:
+            print(f"- {d['name']} | {d['city'].title()} | {d['phone']}")
         print()
     else:
-        print("No matching donor found.\n")
+        print("⚠ No exact match found. Showing nearby donors:\n")
+        for d in donors:
+            if d["blood_group"] == blood_group:
+                print(f"- {d['name']} | {d['city'].title()} | {d['phone']}")
+        print()
 
 while True:
     print("---- BloodLink Menu ----")
