@@ -5,7 +5,7 @@ function Home() {
     const [donorCount, setDonorCount] = useState(0);
 
     useEffect(() => {
-        fetch("http://localhost:5000/donors")
+        fetch("https://bloodlink-backend-lvx1.onrender.com/donors")
             .then(r => r.json())
             .then(data => setDonorCount(data.length))
             .catch(() => { });

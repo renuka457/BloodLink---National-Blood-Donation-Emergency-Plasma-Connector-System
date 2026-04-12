@@ -15,7 +15,7 @@ function Register({ setUser }) {
         if (password.length < 6) { setError("Password must be at least 6 characters."); return; }
         setLoading(true); setError("");
         try {
-            const res = await fetch("http://localhost:5000/register", {
+            const res = await fetch("https://bloodlink-backend-lvx1.onrender.com/register", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ name, email, password }),
@@ -64,8 +64,8 @@ function Register({ setUser }) {
                             fontSize: "16px", fontWeight: "700", cursor: "pointer",
                             fontFamily: "Arial", transition: "background 0.2s"
                         }}
-                        onMouseEnter={e => e.target.style.background = "#fff5f5"}
-                        onMouseLeave={e => e.target.style.background = "white"}
+                            onMouseEnter={e => e.target.style.background = "#fff5f5"}
+                            onMouseLeave={e => e.target.style.background = "white"}
                         >
                             Exit
                         </button>

@@ -14,7 +14,7 @@ function AddDonor() {
     const [age, setAge] = useState("");
     const [weight, setWeight] = useState("");
     const [lastDonation, setLastDonation] = useState("");
-    
+
     const [message, setMessage] = useState("");
     const [isError, setIsError] = useState(false);
     const [loading, setLoading] = useState(false);
@@ -45,7 +45,7 @@ function AddDonor() {
         }
         setLoading(true); setMessage(""); setIsError(false);
         try {
-            const url = forceUpdate ? "http://localhost:5000/update-donor" : "http://localhost:5000/add-donor";
+            const url = forceUpdate ? "https://bloodlink-backend-lvx1.onrender.com/update-donor" : "https://bloodlink-backend-lvx1.onrender.com/add-donor";
             const method = forceUpdate ? "PUT" : "POST";
             const res = await fetch(url, {
                 method,
@@ -109,8 +109,8 @@ function AddDonor() {
                             fontSize: "15px", fontWeight: "700", cursor: "pointer",
                             fontFamily: "Arial", transition: "background 0.2s"
                         }}
-                        onMouseEnter={e => e.target.style.background = "#fff5f5"}
-                        onMouseLeave={e => e.target.style.background = "white"}
+                            onMouseEnter={e => e.target.style.background = "#fff5f5"}
+                            onMouseLeave={e => e.target.style.background = "white"}
                         >
                             Exit
                         </button>

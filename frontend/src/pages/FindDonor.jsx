@@ -14,7 +14,7 @@ function FindDonor() {
         if (!bloodGroup || !city) { setError("Please select both blood group and city."); return; }
         setLoading(true); setError(""); setResults(null);
         try {
-            const res = await fetch(`http://localhost:5000/search-donor?blood_group=${bloodGroup}&city=${city}`);
+            const res = await fetch(`https://bloodlink-backend-lvx1.onrender.com/search-donor?blood_group=${bloodGroup}&city=${city}`);
             const data = await res.json();
             setResults(data);
         } catch {
