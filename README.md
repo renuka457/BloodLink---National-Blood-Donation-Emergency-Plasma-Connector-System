@@ -9,10 +9,9 @@
 <br>
 
 ### Home Page
-<img src="https://github.com/user-attachments/assets/e4448e93-5dcc-460f-ae5a-cc346d3b0d3f" alt="Home Page" width="100%" />
+<img width="1920" height="1080" alt="Screenshot (585)" src="https://github.com/user-attachments/assets/80747531-b009-483e-9d1a-0df4fc0d1053" />
 
-### Login & Registration
-<img src="https://github.com/user-attachments/assets/d65854cb-0d7c-4ca4-b0c6-13449e484622" alt="Login & Registration Page" width="100%" />
+<img width="1920" height="1080" alt="Screenshot (586)" src="https://github.com/user-attachments/assets/6696f83c-7bb4-4c53-8922-acebb6ec2eff" />
 
 ### Add Donor Profile
 <img src="https://github.com/user-attachments/assets/372434bd-baaa-4b58-ad70-9af8bdad2324" alt="Add Donor Page" width="100%" />
