@@ -1,16 +1,42 @@
-# React + Vite
+---
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🔗 API Endpoints
 
-Currently, two official plugins are available:
+| Method | Endpoint          | Description                           |
+| ------ | ------------------ | --------------------------------------- |
+| POST   | `/register`         | Register new user                       |
+| POST   | `/login`             | Login user                              |
+| POST   | `/add-donor`         | Register as donor                       |
+| PUT    | `/update-donor`      | Update donor info                       |
+| GET    | `/donors`            | Get all donors                          |
+| GET    | `/search-donor`      | Search donors by blood group & city     |
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 🏙️ Supported Cities
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Pune · Mumbai · Bangalore · Delhi · Chennai · Hyderabad
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🔮 Future Enhancements
+
+- Distance-based matching using GPS
+- SMS/Email alert system for emergency requests
+- Admin dashboard for donor verification
+- Mobile application
+- Integration with hospital blood bank systems
+
+---
+
+## 👩‍💻 Author
+
+**Renuka Varankar**
+Final Year B.E. Student — Artificial Intelligence & Data Science
+Anantrao Pawar College of Engineering and Research, Pune (SPPU)
+
+---
+
+## 📄 License
+
+This project was developed as part of academic learning and portfolio development. Not licensed for reuse without permission.
