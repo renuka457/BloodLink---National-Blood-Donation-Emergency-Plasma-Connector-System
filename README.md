@@ -8,7 +8,32 @@
 
 **App:** [blood-link-national-blood-donation.vercel.app](https://blood-link-national-blood-donation.vercel.app)
 
-> Backend hosted on Render (free tier) — first load after inactivity may take ~30-60 seconds to wake up.
+> ⏳ Backend runs on Render's free tier and may take 30–60 seconds to respond on first load after inactivity — please wait a moment if it seems slow initially.
+
+---
+
+## 📸 Screenshots
+
+<!-- Add real screenshots here — drag & drop images into the GitHub README editor -->
+
+<details>
+<summary><b>See screenshots</b> — Home, Login/Register, Add Donor, Search Donor</summary>
+<br>
+
+### 🏠 Home
+<img width="1920" height="1080" alt="Home screenshot" src="PASTE_LINK_HERE" />
+
+### 🔐 Login / Register
+<img width="1920" height="1080" alt="Login screenshot" src="PASTE_LINK_HERE" />
+
+### 💉 Add Donor
+<img width="1920" height="1080" alt="Add donor screenshot" src="PASTE_LINK_HERE" />
+
+### 🔍 Search Donor
+<img width="1920" height="1080" alt="Search donor screenshot" src="PASTE_LINK_HERE" />
+
+</details>
+
 ---
 
 ## 📌 Problem Statement
@@ -31,28 +56,30 @@ During medical emergencies, finding compatible blood donors quickly is critical.
 
 ## 🛠️ Tech Stack
 
-| Layer | Technology |
-|---|---|
-| Frontend | React 19, React Router, Vite |
-| Backend | Python, Flask, Flask-CORS |
-| Database | SQLite |
-| Deployment | Vercel (Frontend), Render (Backend) |
-| Version Control | Git & GitHub |
+| Layer            | Technology                          |
+| ----------------- | ------------------------------------ |
+| Frontend          | React 19, React Router, Vite         |
+| Backend           | Python, Flask, Flask-CORS            |
+| Database          | SQLite                               |
+| Deployment        | Vercel (Frontend), Render (Backend)  |
+| Version Control   | Git & GitHub                         |
+
+**Backend API:** [bloodlink-backend-lvx1.onrender.com](https://bloodlink-backend-lvx1.onrender.com) *(may take a moment to wake up — see note above)*
 
 ---
 
 ## 🩸 Blood Group Compatibility
 
 | Patient Needs | Compatible Donors |
-|---|---|
-| O- | O- only |
-| O+ | O-, O+ |
-| A- | O-, A- |
-| A+ | O-, O+, A-, A+ |
-| B- | O-, B- |
-| B+ | O-, O+, B-, B+ |
-| AB- | O-, A-, B-, AB- |
-| AB+ | All groups |
+| -------------- | ------------------- |
+| O-             | O- only              |
+| O+             | O-, O+                |
+| A-             | O-, A-                |
+| A+             | O-, O+, A-, A+          |
+| B-             | O-, B-                |
+| B+             | O-, O+, B-, B+          |
+| AB-            | O-, A-, B-, AB-          |
+| AB+            | All groups              |
 
 ---
 
@@ -79,37 +106,33 @@ Open `http://localhost:5173` in your browser.
 ---
 
 ## 📁 Project Structure
-
-```
 BloodLink/
-├── app.py              # Flask backend with all API routes
-├── database.py         # Database setup
-├── requirements.txt    # Python dependencies
+├── app.py # Flask backend with all API routes
+├── database.py # Database setup
+├── requirements.txt # Python dependencies
 ├── frontend/
-│   └── src/
-│       ├── App.jsx           # Main app with routing
-│       ├── components/
-│       │   └── Navbar.jsx    # Navigation bar
-│       └── pages/
-│           ├── Home.jsx      # Landing page
-│           ├── Login.jsx     # Login page
-│           ├── Register.jsx  # Registration page
-│           ├── AddDonor.jsx  # Donor registration form
-│           └── FindDonor.jsx # Donor search page
-```
-
+│ └── src/
+│ ├── App.jsx # Main app with routing
+│ ├── components/
+│ │ └── Navbar.jsx # Navigation bar
+│ └── pages/
+│ ├── Home.jsx # Landing page
+│ ├── Login.jsx # Login page
+│ ├── Register.jsx # Registration page
+│ ├── AddDonor.jsx # Donor registration form
+│ └── FindDonor.jsx # Donor search page
 ---
 
 ## 🔗 API Endpoints
 
-| Method | Endpoint | Description |
-|---|---|---|
-| POST | `/register` | Register new user |
-| POST | `/login` | Login user |
-| POST | `/add-donor` | Register as donor |
-| PUT | `/update-donor` | Update donor info |
-| GET | `/donors` | Get all donors |
-| GET | `/search-donor` | Search donors by blood group & city |
+| Method | Endpoint          | Description                           |
+| ------ | ------------------ | --------------------------------------- |
+| POST   | `/register`         | Register new user                       |
+| POST   | `/login`             | Login user                              |
+| POST   | `/add-donor`         | Register as donor                       |
+| PUT    | `/update-donor`      | Update donor info                       |
+| GET    | `/donors`            | Get all donors                          |
+| GET    | `/search-donor`      | Search donors by blood group & city     |
 
 ---
 
@@ -139,4 +162,4 @@ Anantrao Pawar College of Engineering and Research, Pune (SPPU)
 
 ## 📄 License
 
-This project was developed as part of academic learning and portfolio development.
+This project was developed as part of academic learning and portfolio development. Not licensed for reuse without permission.
