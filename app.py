@@ -28,14 +28,6 @@ def create_tables():
     conn = get_connection()
     cursor = conn.cursor()
     cursor.execute("""
-        CREATE TABLE IF NOT EXISTS users (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            name TEXT NOT NULL,
-            email TEXT NOT NULL UNIQUE,
-            password TEXT NOT NULL
-        )
-    """)
-    cursor.execute("""
         CREATE TABLE IF NOT EXISTS donors (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             name TEXT NOT NULL,
@@ -51,57 +43,6 @@ def create_tables():
     conn.close()
 
 create_tables()
-
-# ----------------------------
-# Register User
-# ----------------------------
-@app.route('/register', methods=['POST'])
-def register():
-    data = request.json
-    name = data.get('name', '').strip()
-    email = data.get('email', '').strip().lower()
-    password = data.get('password', '').strip()
-
-    if not name or not email or not password:
-        return jsonify({"error": "All fields are required"}), 400
-    if len(password) < 6:
-        return jsonify({"error": "Password must be at least 6 characters"}), 400
-
-    conn = get_connection()
-    cursor = conn.cursor()
-    existing = cursor.execute("SELECT id FROM users WHERE email = ?", (email,)).fetchone()
-    if existing:
-        conn.close()
-        return jsonify({"error": "Email already registered. Please login."}), 400
-
-    cursor.execute("INSERT INTO users (name, email, password) VALUES (?, ?, ?)", (name, email, password))
-    conn.commit()
-    user_id = cursor.lastrowid
-    conn.close()
-    return jsonify({"message": "Registered successfully", "user": {"id": user_id, "name": name, "email": email}})
-
-# ----------------------------
-# Login User
-# ----------------------------
-@app.route('/login', methods=['POST'])
-def login():
-    data = request.json
-    email = data.get('email', '').strip().lower()
-    password = data.get('password', '').strip()
-
-    if not email or not password:
-        return jsonify({"error": "All fields are required"}), 400
-
-    conn = get_connection()
-    user = conn.execute(
-        "SELECT * FROM users WHERE email = ? AND password = ?", (email, password)
-    ).fetchone()
-    conn.close()
-
-    if not user:
-        return jsonify({"error": "Invalid email or password"}), 401
-
-    return jsonify({"message": "Login successful", "user": {"id": user["id"], "name": user["name"], "email": user["email"]}})
 
 # ----------------------------
 # Add Donor

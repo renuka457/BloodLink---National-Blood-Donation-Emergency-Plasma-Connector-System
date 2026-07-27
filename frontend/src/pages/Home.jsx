@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { API_BASE_URL } from "../config";
 
 function Home() {
     const [donorCount, setDonorCount] = useState(0);
 
     useEffect(() => {
-        fetch("https://bloodlink-backend-lvx1.onrender.com/donors")
+        fetch(`${API_BASE_URL}/donors`)
             .then(r => r.json())
             .then(data => setDonorCount(data.length))
             .catch(() => { });
@@ -89,7 +90,7 @@ function Home() {
                 </h2>
                 <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "32px" }}>
                     {[
-                        { icon: "📝", step: "1", title: "Register", desc: "Create an account and register as a blood/plasma donor with your blood group and city." },
+                        { icon: "📝", step: "1", title: "Register", desc: "Register as a blood/plasma donor with your name, blood group, and city." },
                         { icon: "🔍", step: "2", title: "Search", desc: "Patients or hospitals search for donors by blood group and city in seconds." },
                         { icon: "📞", step: "3", title: "Connect", desc: "Get donor contact details instantly — compatible blood groups shown as fallback too." },
                     ].map((item, i) => (
@@ -126,7 +127,7 @@ function Home() {
                 <p style={{ color: "#666", fontFamily: "Arial", marginBottom: "28px", fontSize: "16px" }}>
                     Join thousands of donors across India making a real difference.
                 </p>
-                <Link to="/register" style={{
+                <Link to="/add-donor" style={{
                     background: "linear-gradient(135deg, #c0392b, #e74c3c)",
                     color: "white", padding: "16px 40px",
                     borderRadius: "50px", textDecoration: "none",

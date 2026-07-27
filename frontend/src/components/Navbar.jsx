@@ -1,14 +1,6 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-function Navbar({ user, setUser }) {
-    const navigate = useNavigate();
-
-    const logout = () => {
-        localStorage.removeItem("user");
-        setUser(null);
-        navigate("/");
-    };
-
+function Navbar() {
     return (
         <nav style={{
             background: "linear-gradient(135deg, #c0392b 0%, #e74c3c 100%)",
@@ -31,38 +23,7 @@ function Navbar({ user, setUser }) {
 
             <div style={{ display: "flex", gap: "8px", alignItems: "center" }}>
                 <NavLink to="/find-donor">Find Donor</NavLink>
-                {user ? (
-                    <>
-                        <NavLink to="/add-donor">Be a Donor</NavLink>
-                        <span style={{ color: "rgba(255,255,255,0.8)", fontSize: "14px", marginLeft: "8px" }}>
-                            Hi, {user.name}!
-                        </span>
-                        <button onClick={logout} style={{
-                            background: "rgba(255,255,255,0.15)",
-                            color: "white",
-                            border: "1px solid rgba(255,255,255,0.4)",
-                            padding: "7px 16px",
-                            borderRadius: "20px",
-                            cursor: "pointer",
-                            fontSize: "14px",
-                            marginLeft: "8px",
-                        }}>Logout</button>
-                    </>
-                ) : (
-                    <>
-                        <NavLink to="/login">Login</NavLink>
-                        <Link to="/register" style={{
-                            background: "white",
-                            color: "#c0392b",
-                            padding: "8px 20px",
-                            borderRadius: "20px",
-                            textDecoration: "none",
-                            fontWeight: "700",
-                            fontSize: "14px",
-                            marginLeft: "4px",
-                        }}>Register</Link>
-                    </>
-                )}
+                <NavLink to="/add-donor">Be a Donor</NavLink>
             </div>
         </nav>
     );

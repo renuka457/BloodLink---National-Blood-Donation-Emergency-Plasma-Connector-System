@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { API_BASE_URL } from "../config";
 
 const BLOOD_GROUPS = ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"];
 const CITIES = ["Pune", "Mumbai", "Bangalore", "Delhi", "Chennai", "Hyderabad"];
@@ -14,7 +15,7 @@ function FindDonor() {
         if (!bloodGroup || !city) { setError("Please select both blood group and city."); return; }
         setLoading(true); setError(""); setResults(null);
         try {
-            const res = await fetch(`https://bloodlink-backend-lvx1.onrender.com/search-donor?blood_group=${bloodGroup}&city=${city}`);
+            const res = await fetch(`${API_BASE_URL}/search-donor?blood_group=${encodeURIComponent(bloodGroup)}&city=${encodeURIComponent(city)}`);
             const data = await res.json();
             setResults(data);
         } catch {

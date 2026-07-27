@@ -1,13 +1,14 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { API_BASE_URL } from "../config";
 
 const BLOOD_GROUPS = ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"];
 const CITIES = ["Pune", "Mumbai", "Bangalore", "Delhi", "Chennai", "Hyderabad"];
 
 function AddDonor() {
-    const user = JSON.parse(localStorage.getItem("user") || "{}");
     const navigate = useNavigate();
 
+    const [name, setName] = useState("");
     const [bloodGroup, setBloodGroup] = useState("");
     const [city, setCity] = useState("");
     const [phone, setPhone] = useState("");
@@ -23,7 +24,7 @@ function AddDonor() {
     const [isRegistered, setIsRegistered] = useState(false);
 
     const validate = () => {
-        if (!bloodGroup || !city || !phone || !age || !weight) {
+        if (!name || !bloodGroup || !city || !phone || !age || !weight) {
             setIsError(true); setMessage("Please fill all required fields."); return false;
         }
         if (parseInt(age) < 18 || parseInt(age) > 65) {
@@ -40,18 +41,15 @@ function AddDonor() {
 
     const submitDonor = async (forceUpdate = false) => {
         if (!validate()) return;
-        if (!user.name) {
-            setIsError(true); setMessage("User not found. Please log in first."); return;
-        }
         setLoading(true); setMessage(""); setIsError(false);
         try {
-            const url = forceUpdate ? "https://bloodlink-backend-lvx1.onrender.com/update-donor" : "https://bloodlink-backend-lvx1.onrender.com/add-donor";
+            const url = forceUpdate ? `${API_BASE_URL}/update-donor` : `${API_BASE_URL}/add-donor`;
             const method = forceUpdate ? "PUT" : "POST";
             const res = await fetch(url, {
                 method,
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
-                    name: user.name, blood_group: bloodGroup, city, phone,
+                    name, blood_group: bloodGroup, city, phone,
                     age: parseInt(age), weight: parseInt(weight),
                     last_donation: lastDonation || null,
                 }),
@@ -95,7 +93,7 @@ function AddDonor() {
                     <div style={{ textAlign: "center", marginBottom: "32px" }}>
                         <span style={{ fontSize: "64px", display: "block", marginBottom: "16px" }}>❤️</span>
                         <h1 style={{ fontSize: "28px", color: "#c0392b", margin: "0 0 12px 0", fontFamily: "'Georgia', serif" }}>
-                            Thank You, {user.name}!
+                            Thank You, {name}!
                         </h1>
                         <p style={{ color: "#444", fontFamily: "Arial", fontSize: "18px", marginBottom: "32px", fontWeight: "600", lineHeight: 1.5 }}>
                             You are now registered as a blood donor. You may save a life today.
@@ -207,6 +205,7 @@ function AddDonor() {
                     )}
 
                     <SectionTitle>Basic Information</SectionTitle>
+                    <Input label="Full Name" value={name} onChange={setName} placeholder="e.g. John Doe" type="text" />
                     <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
                         <Input label="Age (18–65)" value={age} onChange={setAge} placeholder="e.g. 25" type="number" />
                         <Input label="Weight in kg (min 50)" value={weight} onChange={setWeight} placeholder="e.g. 65" type="number" />
