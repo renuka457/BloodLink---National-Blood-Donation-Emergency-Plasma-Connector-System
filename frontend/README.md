@@ -1,153 +1,153 @@
-# 🩸 BloodLink — National Blood Donation & Emergency Plasma Connector System
+# 🩸 BloodLink
 
-> Connecting blood and plasma donors with patients in emergency need — instantly, based on blood group and location.
-
----
+> *Real-time blood and plasma donor matching system with location-based search, blood group compatibility logic, and emergency response features.*
 
 ## 📸 Screenshots
 
-<!-- Add real screenshots here — drag & drop images into the GitHub README editor -->
-
 <details>
-<summary><b>See screenshots</b> — Home, Login/Register, Add Donor, Search Donor</summary>
+<summary>Click to view screenshots</summary>
 <br>
 
-### 🏠 Home
-<img width="1920" height="1080" alt="Screenshot (580)" src="https://github.com/user-attachments/assets/e4448e93-5dcc-460f-ae5a-cc346d3b0d3f" />
+### Home Page
+<img src="https://github.com/user-attachments/assets/e4448e93-5dcc-460f-ae5a-cc346d3b0d3f" alt="Home Page" width="100%" />
 
-### 🔐 Login / Register
-<img width="1920" height="1080" alt="Screenshot (583)" src="https://github.com/user-attachments/assets/d65854cb-0d7c-4ca4-b0c6-13449e484622" />
+### Login & Registration
+<img src="https://github.com/user-attachments/assets/d65854cb-0d7c-4ca4-b0c6-13449e484622" alt="Login & Registration Page" width="100%" />
 
-### 💉 Add Donor
-<img width="1920" height="1080" alt="Screenshot (581)" src="https://github.com/user-attachments/assets/372434bd-baaa-4b58-ad70-9af8bdad2324" />
+### Add Donor Profile
+<img src="https://github.com/user-attachments/assets/372434bd-baaa-4b58-ad70-9af8bdad2324" alt="Add Donor Page" width="100%" />
 
-### 🔍 Search Donor
-<img width="1920" height="1080" alt="Screenshot (582)" src="https://github.com/user-attachments/assets/24bf58f4-f882-419d-915a-4f6813b988cf" />
+### Find / Search Donor
+<img src="https://github.com/user-attachments/assets/24bf58f4-f882-419d-915a-4f6813b988cf" alt="Search Donor Page" width="100%" />
 
 </details>
 
----
+## 🔍 Problem Statement
 
-## 📌 Problem Statement
-
-During medical emergencies, finding compatible blood donors quickly is critical. Blood banks frequently run out of rare blood groups. BloodLink solves this by maintaining a searchable donor registry that enables fast, location-based matching — reducing emergency response time by approximately 30%.
-
----
+During medical emergencies, locating compatible blood or plasma donors quickly in a specific city is critical and time-sensitive. Standard donor databases often lack automatic biological compatibility routing, resulting in critical delays when rare blood groups are needed. BloodLink solves this by offering a location-based search that automatically calculates compatible donor groups alongside exact matches, reducing search time for patients in emergency need.
 
 ## ✨ Features
 
-- 🔐 User Registration & Login
-- 💉 Donor Registration with medical eligibility validation (age 18–65, weight ≥ 50kg)
-- 🔍 Search donors by blood group and city
-- 🩸 Smart blood group compatibility matching (e.g. O- can donate to all groups)
-- 📍 Location-based donor search across 6 major Indian cities
-- 🔄 Update donor information anytime
-- ✅ Duplicate donor prevention
-
----
+* 🔐 **User Authentication**: Secure registration and login flows for users to manage profiles.
+* 📋 **Donor Management**: Add and update donor profiles with medical eligibility validation.
+* 📍 **Location-Based Search**: Instantly query active donors filtered by specific cities.
+* 🧬 **Smart Blood Compatibility Engine**: Automatically resolves compatible fallback donor groups (e.g., matching O- donors for other groups) based on biological compatibility rules.
+* 🛡️ **Health Rule Enforcement**: Restricts donor registration to eligible candidates (Age 18-65 and Weight ≥ 50 kg).
 
 ## 🛠️ Tech Stack
 
-| Layer            | Technology                          |
-| ----------------- | ------------------------------------ |
-| Frontend          | React 19, React Router, Vite         |
-| Backend           | Python, Flask, Flask-CORS            |
-| Database          | SQLite                               |
-| Version Control   | Git & GitHub                         |
+| Layer | Technology |
+| :--- | :--- |
+| **Frontend** | React 19, React Router, Vite |
+| **Styling** | Tailwind CSS (v4) |
+| **Backend** | Python, Flask, Flask-CORS |
+| **Database** | SQLite |
+| **Version Control** | Git & GitHub |
 
----
+## 🧬 Blood Group Compatibility
 
-## 🩸 Blood Group Compatibility
+BloodLink automatically suggests compatible fallback donors if an exact blood group match is unavailable. Below is the compatibility matrix implemented in the search engine:
 
 | Patient Needs | Compatible Donors |
-| -------------- | ------------------- |
-| O-             | O- only              |
-| O+             | O-, O+                |
-| A-             | O-, A-                |
-| A+             | O-, O+, A-, A+          |
-| B-             | O-, B-                |
-| B+             | O-, O+, B-, B+          |
-| AB-            | O-, A-, B-, AB-          |
-| AB+            | All groups              |
-
----
+| :---: | :--- |
+| **O-** | O- only |
+| **O+** | O-, O+ |
+| **A-** | O-, A- |
+| **A+** | O-, O+, A-, A+ |
+| **B-** | O-, B- |
+| **B+** | O-, O+, B-, B+ |
+| **AB-** | O-, A-, B-, AB- |
+| **AB+** | All groups *(Universal Recipient)* |
 
 ## 🚀 How to Run Locally
 
-### Backend
-```bash
-cd BloodLink
-python -m venv venv
-venv\Scripts\activate
-pip install -r requirements.txt
-python app.py
-```
+### Backend Setup
 
-### Frontend
-```bash
-cd frontend
-npm install
-npm run dev
-```
+1. Navigate to the root directory and create a virtual environment:
+   ```bash
+   python -m venv venv
+   ```
+2. Activate the virtual environment:
+   * **Windows:**
+     ```bash
+     venv\Scripts\activate
+     ```
+   * **macOS/Linux:**
+     ```bash
+     source venv/bin/activate
+     ```
+3. Install backend dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+4. Run the Flask development server:
+   ```bash
+   python app.py
+   ```
+   *The backend server will run on `http://127.0.0.1:5000`.*
 
-Open `http://localhost:5173` in your browser.
+### Frontend Setup
 
----
+1. Navigate to the `frontend` directory:
+   ```bash
+   cd frontend
+   ```
+2. Install frontend dependencies:
+   ```bash
+   npm install
+   ```
+3. Start the Vite development server:
+   ```bash
+   npm run dev
+   ```
+   *The client application will run on `http://localhost:5173`.*
 
 ## 📁 Project Structure
+
+```
 BloodLink/
-├── app.py # Flask backend with all API routes
-├── database.py # Database setup
-├── requirements.txt # Python dependencies
-├── frontend/
-│ └── src/
-│ ├── App.jsx # Main app with routing
-│ ├── components/
-│ │ └── Navbar.jsx # Navigation bar
-│ └── pages/
-│ ├── Home.jsx # Landing page
-│ ├── Login.jsx # Login page
-│ ├── Register.jsx # Registration page
-│ ├── AddDonor.jsx # Donor registration form
-│ └── FindDonor.jsx # Donor search page
+├── app.py                # Main Flask backend with all API endpoints
+├── database.py           # SQLite database connection setup
+├── requirements.txt      # Python dependencies
+└── frontend/             # Frontend application root
+    ├── src/
+    │   ├── main.jsx        # React DOM mounting & entry point
+    │   ├── App.jsx         # App router setup
+    │   ├── components/
+    │   │   └── Navbar.jsx  # Navigation bar
+    │   └── pages/
+    │       ├── Home.jsx        # Landing dashboard page
+    │       ├── Login.jsx       # User login page
+    │       ├── Register.jsx    # User registration page
+    │       ├── AddDonor.jsx    # Donor profile creation/update page
+    │       └── FindDonor.jsx   # Compatibility search & donor view
+    ├── vite.config.js      # Vite compilation configuration
+    └── package.json        # Frontend NPM script definitions and dependencies
+```
 
----
+## 🔌 API Endpoints
 
-## 🔗 API Endpoints
+| Method | Endpoint | Description | Request Body / Query Params |
+| :--- | :--- | :--- | :--- |
+| `POST` | `/register` | Register a new user | `{ name, email, password }` |
+| `POST` | `/login` | Authenticate existing user | `{ email, password }` |
+| `POST` | `/add-donor` | Add a new donor to the registry | `{ name, blood_group, city, phone, age, weight, last_donation }` |
+| `PUT` | `/update-donor` | Update details of an existing donor | `{ name, blood_group, city, phone, age, weight, last_donation }` |
+| `GET` | `/donors` | Fetch all registered donors | None |
+| `GET` | `/search-donor` | Search and match compatible donors | Query params: `?blood_group=X&city=Y` |
 
-| Method | Endpoint          | Description                           |
-| ------ | ------------------ | --------------------------------------- |
-| POST   | `/register`         | Register new user                       |
-| POST   | `/login`             | Login user                              |
-| POST   | `/add-donor`         | Register as donor                       |
-| PUT    | `/update-donor`      | Update donor info                       |
-| GET    | `/donors`            | Get all donors                          |
-| GET    | `/search-donor`      | Search donors by blood group & city     |
+## 🔮 Future Enhancements & Limitations
 
----
-
-## 🏙️ Supported Cities
-
-Pune · Mumbai · Bangalore · Delhi · Chennai · Hyderabad
-
----
-
-## 🔮 Future Enhancements
-
-- Distance-based matching using GPS
-- SMS/Email alert system for emergency requests
-- Admin dashboard for donor verification
-- Mobile application
-- Integration with hospital blood bank systems
-
----
+* 🔒 **Password Hashing (Known Limitation)**: Passwords are currently stored in plain text in the database for demonstration. Implementing secure hashing (e.g., via `bcrypt` or `argon2`) is a critical security enhancement.
+* 📍 **Distance-Based Matching**: Integrate GPS maps to calculate real-world distance between recipients and donors.
+* 📩 **SMS/Email Alert System**: Automated real-time alerts for local emergency requests.
+* 👮 **Admin Verification Dashboard**: Create a secure panel to verify donor documents.
 
 ## 👩‍💻 Author
 
-**Renuka Varankar** — B.E. in Artificial Intelligence & Data Science
-
----
+**Renuka Varankar**  
+*Software Engineer | AI & Backend Developer*
 
 ## 📄 License
 
-This project was developed as part of academic learning and portfolio development. Not licensed for reuse without permission.
+This project was developed for portfolio purposes.
