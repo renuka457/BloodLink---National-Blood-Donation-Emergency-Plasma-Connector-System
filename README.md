@@ -4,10 +4,7 @@
 
 ---
 
-## 🌐 Live Demo
-- **Frontend:** [bloodlink.vercel.app](https://bloodlink.vercel.app)
-- **Backend API:** [bloodlink-backend-lvx1.onrender.com](https://bloodlink-backend-lvx1.onrender.com)
-
+## 🌐 Live Demo: 
 ---
 
 ## 📌 Problem Statement
