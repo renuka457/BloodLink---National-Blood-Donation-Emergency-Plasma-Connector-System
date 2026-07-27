@@ -4,7 +4,11 @@
 
 ---
 
-## 🌐 Live Demo: https://blood-link-national-blood-donation.vercel.app/
+## 🌐 Live Demo
+
+**App:** [blood-link-national-blood-donation.vercel.app](https://blood-link-national-blood-donation.vercel.app)
+
+> Backend hosted on Render (free tier) — first load after inactivity may take ~30-60 seconds to wake up.
 ---
 
 ## 📌 Problem Statement
